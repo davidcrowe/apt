@@ -11,7 +11,7 @@ The objective of the project is to leverage a combinatorial neural network (CNN)
 ## Project Approach
 We will use an agile approach with weekly sprints. An outline of the objectives for each sprint can be found below:
 
-### Sprint 1: Develop Flask Web App 
+### Sprint 1: Flask
 Sprint owner: TBD  
 Sprint timeline: *7/9 - 7/15*
 

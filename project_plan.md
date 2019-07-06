@@ -1,6 +1,6 @@
 ## CNN Semantic Segmentation
-Real Estate Image Recognition Search within 20 miles of Harvard
-Team 10: David Crowe, Nicolas Garza, Cynthia Gao
+**Real Estate Image Recognition Search within 20 miles of Harvard**  
+*Team 10: David Crowe, Nicolas Garza, Cynthia Gao*
 
 ## Project Description
 The objective of the project is to leverage a combinatorial neural network (CNN), big data & cloud computing to create an image recognition system that detects specific apartment attributes from photos. The CNN will be deployed to the web via a Flask app integrating D3 vizualization, allowing users to easily view and interpret the results. The results of the CNN will also be combined with other apartment data to predict listing price and days on the market, this combining deep learning networks and big data to create a powerful apartments analytic platform.  

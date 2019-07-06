@@ -12,6 +12,7 @@ The objective of the project is to leverage a combinatorial neural network (CNN)
 We will use an agile approach with weekly sprints. An outline of the objectives for each sprint can be found below:
 
 ### Sprint 1: Develop Flask Web App 
+Sprint owner = TBD
 *7/9 - 7/15*
 
 | Area | Task | Task Owner | Notes |
@@ -21,10 +22,11 @@ We will use an agile approach with weekly sprints. An outline of the objectives 
 | Project Planning | Write user stories for this week's tasks & post to process book by EOD 7/8 | David |  |
 | Web Application | Initialize Flask App, add base template, add register & login functionality, & deploy to Heroku | David |  |
 | Web Application | Design database, implement in Postgres & upload data | TBD | |
-| Web Application | Leverage Bootstrap to develop landing page & template for apartment listing pages | |
+| Web Application | Leverage Bootstrap to develop landing page & template for apartment listing pages | TBD |  |
 
 
 ### Sprint 2: Neural Network 
+Sprint owner = TBD
 *7/16 - 7/22*
 
 | Area | Task | Task Owner | Notes |
@@ -39,6 +41,7 @@ We will use an agile approach with weekly sprints. An outline of the objectives 
 
 
 ### Sprint 3: D3 Vizualization 
+Sprint owner = TBD
 *7/23 - 7/29*
 
 | Area | Task | Task Owner | Notes |

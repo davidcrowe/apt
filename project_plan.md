@@ -9,9 +9,10 @@ The objective of the project is to leverage a combinatorial neural network (CNN)
 
 
 ## Project Approach
-We will use an agile approach with weekly sprints for various parts of the project. An outline of the objectives for each sprint can be found below:
+We will use an agile approach with weekly sprints. An outline of the objectives for each sprint can be found below:
 
-### Sprint 1: Develop Flask Web App (due date = 7/15)
+### Sprint 1: Develop Flask Web App 
+**Due date = 7/15**
 
 | Area | Task | Task Owner | Notes |
 | ---- | ---- | ---------- | ----- |
@@ -23,7 +24,8 @@ We will use an agile approach with weekly sprints for various parts of the proje
 | Web Application | Leverage Bootstrap to develop landing page & template for apartment listing pages | |
 
 
-### Sprint 2: Neural Network (due date = 7/22)
+### Sprint 2: Neural Network 
+**Due date = 7/22**
 
 | Area | Task | Task Owner | Notes |
 | ---- | ---- | ---------- | ----- |
@@ -36,7 +38,8 @@ We will use an agile approach with weekly sprints for various parts of the proje
 
 
 
-### Sprint 3: D3 Vizualization (due date = 7/29)
+### Sprint 3: D3 Vizualization 
+**Due date = 7/29**
 
 | Area | Task | Task Owner | Notes |
 | ---- | ---- | ---------- | ----- |
@@ -48,7 +51,8 @@ We will use an agile approach with weekly sprints for various parts of the proje
 
 
 
-### Sprint 4: Debugging (due date = 8/5)
+### Sprint 4: Debugging 
+**Due date = 8/5**
 
 | Area | Task | Task Owner | Notes |
 | ---- | ---- | ---------- | ----- |

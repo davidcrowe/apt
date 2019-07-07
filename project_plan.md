@@ -12,26 +12,27 @@ The objective of the project is to leverage a combinatorial neural network (CNN)
 We will use an agile approach with weekly sprints. An outline of the objectives for each sprint can be found below:
 
 ### Sprint 1: Flask
-Sprint owner: TBD  
+Sprint owner: David  
 Sprint timeline: *7/9 - 7/15*
 
 | Area | Task | Task Owner | Notes |
 | ---- | ---- | ---------- | ----- |
-| Project Planning | Build Project Plan & push to Github | David | (insert comments here) |
-| Project Planning | Build Process Book & push to Github | TBD |  |
-| Project Planning | Write user stories for this week's tasks & post to process book by EOD 7/8 | David |  |
-| Web Application | Initialize Flask App, add base template, add register & login functionality, & deploy to Heroku | David |  |
-| Web Application | Design database, implement in Postgres & upload data | TBD | |
-| Web Application | Leverage Bootstrap to develop landing page & template for apartment listing pages | TBD |  |
+| Project Planning | Build Project Plan & push to Github | Team | (insert comments here) |
+| Project Planning | Build Process Book & push to Github | Team |  |
+| Project Planning | Write user stories for this week's tasks & post to process book by EOD 7/10 | Team |  |
+| Web Application | Initialize Flask App, add base template / landing page / map page placeholder, add register & login functionality, & deploy to Heroku | David |  |
+| Web Application | Design database, implement in Postgres & upload data | Cynthia | |
+| Web Application | Leverage Bootstrap to develop template for apartment listing pages | Nicolas |  |
+| Web Application | Ensure data is connected to & viewable in app  | David |  |
+
 
 
 ### Sprint 2: Neural Network 
-Sprint owner: TBD  
+Sprint owner: Nicolas  
 Sprint timeline: *7/16 - 7/22*
 
 | Area | Task | Task Owner | Notes |
 | ---- | ---- | ---------- | ----- |
-| Project Planning | Write user stories for this week's tasks & post to process book by EOD 7/15 | TBD | (insert comments here) |
 | Neural Network | Randomly deform, crop & brighten images to create new training inputs and improve results of CNN re-training | TBD | |
 | Neural Network | Split images into training, validation & test sets | TBD | |
 | Neural Network | Re-train a pre-trained CNN using labeled apartment photos | TBD | |
@@ -40,16 +41,15 @@ Sprint timeline: *7/16 - 7/22*
 
 
 
-### Sprint 3: D3 Vizualization 
-Sprint owner: TBD  
+### Sprint 3: D3 Visualization 
+Sprint owner: Cynthia  
 Sprint timeline: *7/23 - 7/29*
 
 | Area | Task | Task Owner | Notes |
 | ---- | ---- | ---------- | ----- |
-| Project Planning | Write user stories for this week's tasks & post to process book by EOD 7/22 | TBD | (insert comments here) |
-| Data Vizualization | Build D3 vizualizations | TBD | |
-| Data Vizualization | Build D3 vizualizations | TBD | |
-| Data Vizualization | Build D3 vizualizations | TBD | |
+| Data Visualization | Develop map page including locations of available apartments based on location search with filters via D3 | TBD |  |
+| Data Vizualization | Try to visualize layer by layer transformations to demonstrate how the NN identifies features within photos | TBD | |
+| Data Vizualization | Build interesting D3 vizualizations based on data | TBD | |
 | Web Application | Add necessary web server functions & refine UI & DB model as needed | TBD | |
 
 
@@ -59,7 +59,7 @@ Sprint timeline: *7/30 - 8/5*
 
 | Area | Task | Task Owner | Notes |
 | ---- | ---- | ---------- | ----- |
-| Web Application | Complete any final debugging / tweaking of the web app | TBD | |
+| Web Application | Complete any final debugging / tweaking of the Flask app | TBD | |
 | Neural Network | Complete any final debugging / tweaking of the CNN | TBD | |
 | Data Vizualization | Complete any final debugging / tweaking of the D3 vizualizations | TBD | |
 

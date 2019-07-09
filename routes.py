@@ -20,6 +20,9 @@ def login():
 	return render_template("login.html", message=message)
 
 
+@app.route("/landing")
+def landing():
+	return render_template("landing.html")
 
 
 if __name__ == "__main__":

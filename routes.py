@@ -1,6 +1,12 @@
 from flask import Flask, render_template
+from flask_heroku import Heroku
+from models import db, User
 
 app = Flask(__name__)
+
+# heroku = Heroku(app)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost/housingapp'
+db.init_app(app)
 
 @app.route("/")
 def index():

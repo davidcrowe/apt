@@ -10,8 +10,7 @@ db.init_app(app)
 
 @app.route("/")
 def index():
-	message = "Hello world"
-	return render_template("layout.html", message=message)
+	return render_template("landing.html")
 
 
 @app.route("/register")

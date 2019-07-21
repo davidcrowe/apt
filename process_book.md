@@ -21,3 +21,22 @@
 | Area | Task, To-do, Design, Idea, Question etc. | Name | 
 | ---- | ---- | ---------- | 
 | Web Development | Added initial landing.html file to serve as site landing page; updated routes.py file to add /landing route; removed Boston March 2018 data set to repo | David |
+
+
+### 7/12
+
+| Area | Task, To-do, Design, Idea, Question etc. | Name | 
+| ---- | ---- | ---------- | 
+| Organization | Added .gitignore file for env and requirements.txt | David |
+
+
+### 7/14
+| Area | Task, To-do, Design, Idea, Question etc. | Name | 
+| ---- | ---- | ---------- | 
+| Database | Added db to routes.py and began models.py; To-do: link local db with zona's db => heroku db | Cynthia |
+
+
+### 7/17
+| Area | Task, To-do, Design, Idea, Question etc. | Name | 
+| ---- | ---- | ---------- | 
+| UI | Improved landing/login pages and updated css file | Nicholas |

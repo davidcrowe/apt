@@ -19,12 +19,12 @@ class Property(db.Model):
 	baths = db.Column(db.Float, nullable=False)
 	sqft = db.Column(db.Integer, nullable=False)
 	age = db.Column(db.Integer, nullable=False)
-	lot_size = db.Column(db.Integer)
+	lot_size = db.Column(db.Integer, nullable=True)
 	agent_info = db.Column(db.Integer, db.ForeignKey("agents.id"), nullable=False)
 	showing_instructions = db.Column(db.String(256), nullable=True)
 	remarks = db.Column(db.String(256), nullable=True)
 	style = db.Column(db.Integer, db.ForeignKey("style.id"), nullable=False)
-	level = db.Column(db.Integer)
+	level = db.Column(db.Integer, nullable=True)
 	garage = db.Column(db.Integer, nullable=False)
 	heating = db.Column(db.Integer, db.ForeignKey("heating.id"), nullable=False)
 	cooling = db.Column(db.Integer, db.ForeignKey("cooling.id"), nullable=False)
@@ -39,7 +39,7 @@ class Property(db.Model):
 class Status(db.Model):
 	__tablename__ = 'status'
 	id = db.Column(db.Integer, primary_key=True)
-	status = db.Column(db.String(4))
+	status = db.Column(db.String(4), nullable=True)
 
 
 class Address(db.Model):

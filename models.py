@@ -21,8 +21,8 @@ class Property(db.Model):
 	age = db.Column(db.Integer, nullable=False)
 	lot_size = db.Column(db.Integer)
 	agent_info = db.Column(db.Integer, db.ForeignKey("agents.id"), nullable=False)
-	showing_instructions = 
-	remarks = 
+	showing_instructions = db.Column(db.String(256), nullable=True)
+	remarks = db.Column(db.String(256), nullable=True)
 	style = db.Column(db.Integer, db.ForeignKey("style.id"), nullable=False)
 	level = db.Column(db.Integer)
 	garage = db.Column(db.Integer, nullable=False)

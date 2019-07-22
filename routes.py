@@ -5,7 +5,7 @@ from models import db, User
 app = Flask(__name__)
 
 # heroku = Heroku(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:postgres@localhost/housingapp'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:########@localhost/housingapp'
 db.init_app(app)
 
 @app.route("/")

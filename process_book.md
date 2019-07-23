@@ -47,4 +47,3 @@
 | CNN | Made the basic layout for the model implementation. | Nicholas |
 | UI | Updated the Html Templates with additional bootstrap components and a draft for a D3 Visualization. | Nicholas |
 | DB | Completed additional tasks regarding DB and Updated Models and Routes Files.  | David |
-| DB | Completed additional tasks regarding DB and Updated Models and Routes Files.  | David |

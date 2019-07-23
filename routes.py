@@ -5,9 +5,9 @@ import psycopg2
 
 
 app = Flask(__name__)
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:baja1880@localhost/housingapp'
+heroku = Heroku(app)
 
-# heroku = Heroku(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:baja1880@localhost/housingapp'
 db.init_app(app)
 
 app.secret_key = "final-project-key"

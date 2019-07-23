@@ -23,7 +23,7 @@ class Property(db.Model):
 	agent_info = db.Column(db.Integer, db.ForeignKey("agents.id"), nullable=False)
 	showing_instructions = db.Column(db.String(256), nullable=True)
 	remarks = db.Column(db.String(256), nullable=True)
-	style = db.Column(db.Integer, db.ForeignKey("style.id"), nullable=False)
+	style = db.Column(db.Integer, db.ForeignKey("styles.id"), nullable=False)
 	level = db.Column(db.Integer, nullable=True)
 	garage = db.Column(db.Integer, nullable=False)
 	heating = db.Column(db.Integer, db.ForeignKey("heating.id"), nullable=False)

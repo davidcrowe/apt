@@ -1,16 +1,22 @@
 from flask import Flask, render_template
 from flask_heroku import Heroku
-from models import db, User
+from models import db, Property
+import psycopg2
+
 
 app = Flask(__name__)
 
 # heroku = Heroku(app)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:########@localhost/housingapp'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:baja1880@localhost/housingapp'
 db.init_app(app)
+
+app.secret_key = "final-project-key"
+
 
 @app.route("/")
 def index():
-	return render_template("landing.html")
+	properties = Property.query.all()
+	return render_template("landing.html", properties=properties)
 
 
 @app.route("/register")

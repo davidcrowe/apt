@@ -19,7 +19,7 @@ app.secret_key = "final-project-key"
 @app.route("/")
 def index():
 	properties = Property.query.all()
-	return render_template("landing.html", properties=properties)
+	return render_template("index.html", properties=properties)
 
 
 @app.route("/register")
@@ -37,6 +37,20 @@ def login():
 @app.route("/landing")
 def landing():
 	return render_template("landing.html")
+
+
+
+@app.route("/begin-search")
+def landing():
+	return render_template("begin-search.html")
+
+@app.route("/property-detail")
+def landing():
+	return render_template("property-detail.html")
+
+@app.route("/view-properties")
+def landing():
+	return render_template("view-properties.html")
 
 
 if __name__ == "__main__":

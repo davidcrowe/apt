@@ -5,7 +5,10 @@ import psycopg2
 
 
 app = Flask(__name__)
-#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:baja1880@localhost/housingapp'
+
+# comment the first line below for deploying to heroku; comment second line for local deployment 
+
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:########@localhost/housingapp'
 heroku = Heroku(app)
 
 db.init_app(app)

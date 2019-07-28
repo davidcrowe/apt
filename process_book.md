@@ -47,3 +47,11 @@
 | CNN | Made the basic layout for the model implementation. | Nicholas |
 | UI | Updated the Html Templates with additional bootstrap components and a draft for a D3 Visualization. | Nicholas |
 | DB | Completed additional tasks regarding DB and Updated Models and Routes Files.  | David |
+
+### 7/18-28
+Based on multiple conversations between David, Nicolas & Fred, we decided to move to a more simple DB design. While we agreed that the initial approach (shown in screenshots in the root/screenshot folder) is optimal, it proved very difficult to import the data given the complexities of having multiple tables and associated foreign key relationships (not included in the source data, which is a single flat csv file). Given the scope of the project and the project deadline, we decided to move to a more simple model, and if there is time we can return to a DB model similar to the initial model in order to improve the richness of data included in the app and optimize the performance of the database. 
+
+
+
+
+

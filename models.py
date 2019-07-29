@@ -14,5 +14,14 @@ class Property(db.Model):
 	photo_url = db.Column(db.String(128), nullable=False)
 
 
+class Photo(db.Model):
+	__tablename__ = 'photos'
+	pid = db.Column(db.Integer, primary_key=True, autoincrement=True)
+	mls_num = db.Column(db.Integer, nullable=False)
+	img_num = db.Column(db.Integer, nullable=False)
+	features = db.Column(db.String, nullable=False)
+
+
+
 
 

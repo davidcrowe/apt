@@ -52,6 +52,12 @@
 Based on multiple conversations between David, Nicolas & Fred, we decided to move to a more simple DB design. While we agreed that the initial approach (shown in screenshots in the root/screenshot folder) is optimal, it proved very difficult to import the data given the complexities of having multiple tables and associated foreign key relationships (not included in the source data, which is a single flat csv file). Given the scope of the project and the project deadline, we decided to move to a more simple model, and if there is time we can return to a DB model similar to the initial model in order to improve the richness of data included in the app and optimize the performance of the database. 
 
 
+### 7/24-28
 
+| Area | Task, To-do, Design, Idea, Question etc. | Name | 
+| ---- | ---- | ---------- | 
+| UI | Continued to fix some errors regarding jinja templates and their DB connectivity. | Nicolas |
+| CNN | Worked on the CNN regarding what we commented with our team lead, Fred. | David |
+| Debug | Continued to Debug CNN. | David & Nicolas |
 
 

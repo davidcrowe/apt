@@ -4,6 +4,7 @@ import psycopg2
 import os
 from werkzeug.utils import secure_filename
 from models import *
+from img_nn import *
 
 app = Flask(__name__)
 
@@ -91,12 +92,18 @@ def upload_image():
 			if allowed_image(image.filename):
 				filename = secure_filename(image.filename)
 				image.save(os.path.join(app.config["IMAGE_UPLOADS"], filename))
+				loc = os.path.join(app.config["IMAGE_UPLOADS"], filename)
+				print("Loc: ")
+				print(loc)
 				print("Image saved")
-				return redirect(request.url)
+				data_df = upload_nn(loc, dict())
+				print("nn_output should now be rendered")
+				return render_template("nn_output.html", data_df=data_df)
 
 			else:
 				print("That file extension is not allowed")
 				return redirect(request.url)
+				
 	return render_template("upload_image.html")
 
 

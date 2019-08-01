@@ -1,4 +1,9 @@
 requirements.txt
+<<<<<<< HEAD
 env/
 __pycache__/
 calm-waters-65615/
+=======
+static/data/imgs_con_14000_28000.zip
+static/data/features.csv
+>>>>>>> a77414b70fa14b5a14a36d9c3203102f2148bbd0

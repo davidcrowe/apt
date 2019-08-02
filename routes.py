@@ -61,7 +61,8 @@ def property_detail():
 
 @app.route("/view-properties")
 def view_properties():
-	return render_template("view-properties.html")
+	propertys = Property.query.all()
+	return render_template("view-properties.html", propertys = propertys)
 
 
 def allowed_image(filename):

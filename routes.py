@@ -4,6 +4,7 @@ import psycopg2
 import os
 from werkzeug.utils import secure_filename
 from models import *
+from forms import RegisterForm, LoginForm
 from img_nn import *
 
 app = Flask(__name__)
@@ -24,30 +25,68 @@ app.secret_key = "final-project-key"
 
 
 @app.route("/")
+@app.route('/index')
 def index():
 	#properties = Property.query.all()
 	#
 	#test = Property.query.get(1) 
-	return render_template("index.html")
+	if 'username' in session:
+		session_user = User.query.filter_by(username=session['username']).first()
+		return render_template('index.html', title='Home', session_username=session_user.username)
+	else:
+		return render_template("index.html", title="Home")
 
-
-@app.route("/register")
+@app.route("/register", methods=['GET', 'POST'])
 def register():
 	message = "Register"
-	return render_template("register.html", message=message)
+	form = RegisterForm()
+	if request.method == 'POST':
+		username = request.form['username']
+		email = request.form['email']
+		password = request.form['password']
+		existing_user = User.query.filter_by(username=username).first()
+		if existing_user:
+			flash('The username already exists. Please pick another one.')
+			return redirect(url_for('register'))
+		existing_email = User.query.filter_by(email=email).first()
+		if existing_email:
+			flash('There is already an account associated with that email. Please try again.')
+			return redirect(url_for('register'))
+		else:
+			user = User(username=username, email=email, passwrd=sha256_crypt.hash(password))
+			db.session.add(user)
+			db.session.commit()
+			flash('Congratulations, you are now a registered user!')
+			return redirect(url_for('login'))
+	else:
+		return render_template('register.html', message=message, form=form)
 
 
-@app.route("/login")
+@app.route("/login", methods=['GET', 'POST'])
 def login():
 	message = "Login"
-	return render_template("login.html", message=message)
+	form = LoginForm()
+	if request.method == 'POST':
+		username = request.form['username']
+		password = request.form['password']
+		user = User.query.filter_by(username=username).first()
+		if user is None or not sha256_crypt.verify(password, user.password):
+			flash('Invalid username or password')
+			return redirect(url_for('login'))
+		else:
+			session['username'] = username
+			return redirect(url_for('index'))	
+	else:
+		return render_template("login.html", message=message, form=form)
 
+@app.route('/logout', methods=['POST'])
+def logout():
+	session.clear()
+	return redirect(url_for('index'))
 
 @app.route("/landing")
 def landing():
 	return render_template("landing.html")
-
-
 
 @app.route("/begin-search")
 def begin_search():

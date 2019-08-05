@@ -3,7 +3,7 @@ from flask_heroku import Heroku
 import psycopg2
 import os
 from werkzeug.utils import secure_filename
-from models import *
+from models import db, Property
 from forms import RegisterForm, LoginForm
 from img_nn import *
 
@@ -100,7 +100,7 @@ def property_detail():
 
 @app.route("/view-properties")
 def view_properties():
-	propertys = Property.query.all()
+	propertys = Property.query.filter().limit(10).all()
 	return render_template("view-properties.html", propertys = propertys)
 
 

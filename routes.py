@@ -1,10 +1,11 @@
-from flask import Flask, render_template, request, redirect, session
+from flask import Flask, flash, render_template, request, redirect, jsonify, session
 from flask_heroku import Heroku
 import psycopg2
 import os
 from werkzeug.utils import secure_filename
-from models import db, Property
+from models import db, Property, User
 from forms import RegisterForm, LoginForm
+from passlib.hash import sha256_crypt
 from img_nn import *
 
 app = Flask(__name__)
@@ -27,29 +28,31 @@ app.secret_key = "final-project-key"
 @app.route("/")
 @app.route('/index')
 def index():
-	return render_template("index.html", title="Home")
-	#if 'username' in session:
-		#session_user = User.query.filter_by(username=session['username']).first()
-		#return render_template('index.html', title='Home', session_username=session_user.username)
-	#else:
-		#return render_template("index.html", title="Home")
+	# return render_template("index.html", title="Home")
+	if 'username' in session:
+		session_user = User.query.filter_by(username=session['username']).first()
+		return render_template('index.html', title='Home', session_username=session_user.username)
+	else:
+		return render_template("index.html", title="Home")
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():
-	message = "Register"
 	form = RegisterForm()
 	if request.method == 'POST':
 		username = request.form['username']
 		email = request.form['email']
 		password = request.form['password']
+
 		existing_user = User.query.filter_by(username=username).first()
 		if existing_user:
 			flash('The username already exists. Please pick another one.')
 			return redirect(url_for('register'))
+
 		existing_email = User.query.filter_by(email=email).first()
 		if existing_email:
 			flash('There is already an account associated with that email. Please try again.')
 			return redirect(url_for('register'))
+
 		else:
 			user = User(username=username, email=email, passwrd=sha256_crypt.hash(password))
 			db.session.add(user)
@@ -57,12 +60,11 @@ def register():
 			flash('Congratulations, you are now a registered user!')
 			return redirect(url_for('login'))
 	else:
-		return render_template('register.html', message=message, form=form)
+		return render_template('register.html', form=form)
 
 
 @app.route("/login", methods=['GET', 'POST'])
 def login():
-	message = "Login"
 	form = LoginForm()
 	if request.method == 'POST':
 		username = request.form['username']
@@ -71,11 +73,12 @@ def login():
 		if user is None or not sha256_crypt.verify(password, user.password):
 			flash('Invalid username or password')
 			return redirect(url_for('login'))
+			
 		else:
 			session['username'] = username
 			return redirect(url_for('index'))	
 	else:
-		return render_template("login.html", message=message, form=form)
+		return render_template("login.html", form=form)
 
 @app.route('/logout', methods=['POST'])
 def logout():

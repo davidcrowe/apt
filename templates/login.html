@@ -7,25 +7,33 @@
   <body class="text-center">
     <form class="form-signin">
 	  <img class="mb-4 apt-logo" src="../static/img/aptlogo.png" alt="" width="72" height="72">
-	  <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
+	  <h1 class="h3 mb-3 font-weight-normal">Please Log In</h1>
 	  <div>
 	  	{{ form.username.label }}<br>
+		{{ form.username(size=32) }}<br>
+
 	  	{% for error in form.username.errors %}
-	  	<span style="color: red;">[{{ error }}]</span>
+	  		<span style="color: red;">[{{ error }}]</span>
 	  	{% endfor %}
 	  </div>
+
 	  <div>
 	  	{{ form.password.label }}<br>
+		{{ form.password(size=32) }}<br>
+
 	  	{% for error in form.password.errors %}
-	  	<span style="color: red;">[{{ error }}]</span>
+	  		<span style="color: red;">[{{ error }}]</span>
 	  	{% endfor %}
 	  </div>
+
 	  <div class="checkbox mb-3">
 	    <label>
 	      <input type="checkbox" value="remember-me"> Remember me
 	    </label>
 	  </div>
+
 	  {{ form.submit(class="btn btn-lg btn-primary btn-block") }}
+	  
 	</form>
 </body>
 

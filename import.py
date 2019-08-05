@@ -18,11 +18,11 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
 def main():
-	f = open("static/data/properties.csv")
+	f = open("static/data/properties2.csv")
 	reader = csv.reader(f)
 	next(reader, None)
-	for MLSNUM, LISTPRICE, ZIP, BEDS, BATHS, SQFT, PHOTOURL in reader:
-		property = Property(mls_num=MLSNUM, list_price=LISTPRICE, zip=ZIP, beds=BEDS, baths=BATHS, sqft=SQFT, photo_url=PHOTOURL)
+	for MLSNUM, LISTPRICE, ADDRESS, CITY, STATE, ZIP, BEDS, BATHS, SQFT, REMARKS, STYLE, PHOTOURL in reader:
+		property = Property(mls_num=MLSNUM, list_price=LISTPRICE, address=ADDRESS, city=CITY, state=STATE, zip=ZIP, beds=BEDS, baths=BATHS, sqft=SQFT, remarks=REMARKS, style=STYLE, photo_url=PHOTOURL)
 		db.session.add(property)
 	db.session.commit()
 

@@ -27,14 +27,12 @@ app.secret_key = "final-project-key"
 @app.route("/")
 @app.route('/index')
 def index():
-	#properties = Property.query.all()
-	#
-	#test = Property.query.get(1) 
-	if 'username' in session:
-		session_user = User.query.filter_by(username=session['username']).first()
-		return render_template('index.html', title='Home', session_username=session_user.username)
-	else:
-		return render_template("index.html", title="Home")
+	return render_template("index.html", title="Home")
+	#if 'username' in session:
+		#session_user = User.query.filter_by(username=session['username']).first()
+		#return render_template('index.html', title='Home', session_username=session_user.username)
+	#else:
+		#return render_template("index.html", title="Home")
 
 @app.route("/register", methods=['GET', 'POST'])
 def register():

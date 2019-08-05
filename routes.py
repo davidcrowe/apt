@@ -10,8 +10,8 @@ from img_nn import *
 
 app = Flask(__name__)
 
-# comment the first line below for deploying to heroku; comment second line for local deployment 
 
+# comment the first line below for deploying to heroku; comment second line for local deployment 
 app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:########@localhost/housingapp'
 #heroku = Heroku(app)
 

@@ -55,7 +55,31 @@ def findClosest(photo, iarray):
 		}
 		closest.append(comparison)
 
+
+	closest.sort(key=itemgetter('closeness'))
+	print(closest[0:4])
+	#only return the top 5
+	return [c['mlsnum'] for c in closest[:5]]
+
+
+def findClosestPropDetail(property, iarray):
+	closest = []
+	for image in iarray:
+		comparison = {
+			'mlsnum': image.mls_num,
+			'closeness': norm(fromZeroes(property.features) - fromZeroes(image.features))
+		}
+		closest.append(comparison)
+
 	closest.sort(key=itemgetter('closeness'))
 	#only return the top 5
 	return [c['mlsnum'] for c in closest[:5]]
+
+
+
+
+
+
+
+
 

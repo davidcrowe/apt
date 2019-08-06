@@ -4,7 +4,7 @@ from flask import Flask, flash, render_template, request, redirect, jsonify, ses
 from flask_heroku import Heroku
 from werkzeug.utils import secure_filename
 from passlib.hash import sha256_crypt
-from models import db, Property, User
+from models import *
 from img_nn import *
 from forms import RegisterForm, LoginForm
 
@@ -101,6 +101,16 @@ def begin_search():
 @app.route("/<cid>")
 def property_detail(cid):
 	property = Property.query.get(cid)
+	mls = str(property.mls_num)
+	#if mls in 
+	prop_func = Photo.query.filter_by(mls_num=str(71835057)).first()
+	db_images = Photo.query.filter().all()
+	print(prop_func.features)
+	closest = []
+	closest = findClosestPropDetail(prop_func, db_images)
+	print(closest)
+
+
 	return render_template('property-detail.html', property=property)
 
 

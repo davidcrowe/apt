@@ -44,22 +44,24 @@
 			<p class="text-center"></p>
 		</div>
 		<!-- End: Intro -->
+
+
+
 		<!-- Start: Photos -->
 		<h1 class="mb-5" style="text-align: left;font-family: 'Open Sans', sans-serif;font-weight: bold;font-size: 24px;color: #0a243e;">Similar Properties</h1>
 		<div class="row photos" style="margin-top: -20px; margin-bottom: 20px;">
+
+{% for result in final_product %}
+
 			<div class="col-sm-6 col-md-4 col-lg-3 item">
-				<a data-lightbox="photos" href="#"><img class="img-fluid" src="static/img/charles-loyer-QN6fCROYdWM-unsplash.jpg?h=de70ef132da9df664436cc2fddaba268"></a>
+				<p>{{result.photo_url}}</p>
+				<a data-lightbox="photos" href="#"><img class="img-fluid" src="{{result.photo_url}}"></a>
 			</div>
-			<div class="col-sm-6 col-md-4 col-lg-3 item">
-				<a data-lightbox="photos" href="#"><img class="img-fluid" src="static/img/loft.jpg?h=7f7c3d76142833ed92bb12a9053c9cac"></a>
-			</div>
-			<div class="col-sm-6 col-md-4 col-lg-3 item">
-				<a data-lightbox="photos" href="#"><img class="img-fluid" src="static/img/douglas-sheppard-9rYfG8sWRVo-unsplash.jpg?h=462f12d9f3abc23814ebd8d097d89358"></a>
-			</div>
-			<div class="col-sm-6 col-md-4 col-lg-3 item">
-				<a data-lightbox="photos" href="#"><img class="img-fluid" src="static/img/alexander-pemberton-skLqGtLrYKc-unsplash.jpg?h=8bb9fa2825b3f303f162616149784a46"></a>
-			</div>
+
 			<!-- End: Photos -->
 		</div>
+
+{% endfor %}
+
 		</br>
 </section> {% endblock %}

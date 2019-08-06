@@ -103,6 +103,7 @@ def property_detail(cid):
 	property = Property.query.get(cid)
 
 	mls = str(property.mls_num)
+	#mls = str(71835057)
 	print(mls)
 
 	#mls = str(71857486)
@@ -111,12 +112,13 @@ def property_detail(cid):
 
 	for photo in photos:
 		mlsNums.append(photo.mls_num)
-		print(mlsNums)
+		#print(mlsNums)
+		#photo_mls = photo.mls_num
 
-		photo_mls = photos.mls_num
 	if mls in mlsNums:
 		prop_func = Photo.query.filter_by(mls_num=str(mls)).first()
-		db_images = Photo.query.filter().limit(20).all()
+					# Use limit 100 for prototype, but increase to 350 for final submission
+		db_images = Photo.query.filter().limit(100).all()
 		closest = []
 		closest = findClosestPropDetail(prop_func, db_images)
 	else:
@@ -167,7 +169,8 @@ def upload_image():
 	if request.method == "POST":
 		if request.files:
 
-			db_images = Photo.query.filter().all()
+			# Use limit 100 for prototype, but increase to 350 for final submission
+			db_images = Photo.query.filter().limit(100).all()
 			upload_image = request.files["image"]
 
 			if upload_image.filename == "":
@@ -176,7 +179,8 @@ def upload_image():
 
 			if allowed_image(upload_image.filename):
 				filename = secure_filename(upload_image.filename)
-				upload_image.save(os.path.join(app.config["IMAGE_UPLOADS"], filename))
+				#upload_image = request.files['photo']
+				#upload_image.save(os.path.join(app.config["IMAGE_UPLOADS"], filename))
 				loc = os.path.join(app.config["IMAGE_UPLOADS"], filename)
 				print("Loc: ")
 				print(loc)

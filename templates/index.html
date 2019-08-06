@@ -1,17 +1,18 @@
 {% extends "layout.html" %} {% block body %}
 
-<header class="masthead text-white text-center" style="background:url('static/img/burke&union.jpg?h=902cbd25ef30f3167b3139adcf2abd22')no-repeat center center;background-size:cover;">
+<header class="masthead text-white text-center" style="background:url('static/img/burke&union.jpg?h=902cbd25ef30f3167b3139adcf2abd22')no-repeat center center;background-size:cover; height: 600px">
   <div class="overlay"></div>
   <div class="container">
     <div class="row">
       <div class="col-lg-12 col-xl-9 mx-auto" style="align-items: left;align-content: left;">
-        <h1 class="mb-5" style="text-align: left;font-family: 'Open Sans', sans-serif;font-size: 42px;">Find your perfect place.</h1><button class="btn btn-primary" type="button" style="width: 200px;float: left;position: relative;top: -20px;font-weight: normal;border-width: 0;background: #FF512F;fallback for old browsers */background: -webkit-linear-gradient(to right, #F09819, #FF512F);background: linear-gradient(to right, #F09819, #e77221);font-family: 'Open Sans', sans-serif;font-size: 15px;">Begin Your Search</button></div>
+        <h1 class="mb-5" style="text-align: left;font-family: 'Open Sans', sans-serif;font-size: 42px;">Find your perfect place.</h1>
+        <a href="/begin-search"><button class="btn btn-primary" type="button"  style="width: 200px;float: left;position: relative;top: -20px;font-weight: normal;border-width: 0;background: #FF512F;fallback for old browsers */background: -webkit-linear-gradient(to right, #F09819, #FF512F);background: linear-gradient(to right, #F09819, #e77221);font-family: 'Open Sans', sans-serif;font-size: 15px;">
+          Begin Your Search</button> </a></div>
     </div>
   </div>
 </header>
-<section class="features-icons bg-light text-center">
-  <div class="container"></div>
-</section>
+
 <section class="showcase"></section>
 
 {% endblock %}
+

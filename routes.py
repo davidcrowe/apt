@@ -101,25 +101,37 @@ def begin_search():
 @app.route("/<cid>")
 def property_detail(cid):
 	property = Property.query.get(cid)
-	#mls = str(property.mls_num)
-	mls = str(71857486)
+
+	mls = str(property.mls_num)
+	print(mls)
+
+	#mls = str(71857486)
 	photos = Photo.query.all()
 	mlsNums = []
+
 	for photo in photos:
-		mlsNums.append(photos.mls_num)
-	print(mlsNums)
-	#photo_mls = photos.mls_num
+		mlsNums.append(photo.mls_num)
+		print(mlsNums)
+
+		photo_mls = photos.mls_num
 	if mls in mlsNums:
 		prop_func = Photo.query.filter_by(mls_num=str(mls)).first()
-		db_images = Photo.query.filter().limit(10).all()
+		db_images = Photo.query.filter().limit(20).all()
 		closest = []
 		closest = findClosestPropDetail(prop_func, db_images)
 	else:
+		print('else')
+
+		# closest must equal to dictonary
 		closest = ['71835057', '71895128', '71895125', '71826868', '71902172']
+
 	print(closest)
 
+	final_product = Property.query.filter(Property.mls_num.in_(closest)).all()
 
-	return render_template('property-detail.html', property=property, closest=closest)
+	print(final_product)
+
+	return render_template('property-detail.html', property=property, closest=closest, final_product = final_product)
 
 
 @app.route("/view-properties")

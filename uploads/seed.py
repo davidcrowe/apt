@@ -1,0 +1,1 @@
+# Empty "seed" file to ensure that git tracks tje /uploads folder

@@ -18,7 +18,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db.init_app(app)
 
 def main():
-	f = open("static/data/properties2.csv")
+	f = open("static/data/properties3.csv")
 	reader = csv.reader(f)
 	next(reader, None)
 	for MLSNUM, LISTPRICE, ADDRESS, CITY, STATE, ZIP, BEDS, BATHS, SQFT, REMARKS, STYLE, PHOTOURL in reader:

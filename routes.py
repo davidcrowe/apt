@@ -3,9 +3,9 @@ from flask_heroku import Heroku
 import psycopg2
 import os
 from werkzeug.utils import secure_filename
-from models import db, Property, User
+from models import *
 from forms import RegisterForm, LoginForm
-from passlib.hash import sha256_crypt
+#from passlib.hash import sha256_crypt
 from img_nn import *
 
 app = Flask(__name__)
@@ -19,6 +19,7 @@ app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:########@localhos
 app.config["IMAGE_UPLOADS"] = "/Users/davidcrowe/code/harvard/csci_s14a/final_project/repo/HES-CSCI_S14A-CNN_Semantic_Segmentation_Team_10/uploads"
 app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF"]
 app.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024
+
 
 db.init_app(app)
 
@@ -124,22 +125,27 @@ def allowed_image(filename):
 def upload_image():
 	if request.method == "POST":
 		if request.files:
-			image = request.files["image"]
 
-			if image.filename == "":
+			db_images = Photo.query.filter().all()
+			upload_image = request.files["image"]
+
+			if upload_image.filename == "":
 				print("No filename")
 				return redirect(request.url)
 
-			if allowed_image(image.filename):
-				filename = secure_filename(image.filename)
-				image.save(os.path.join(app.config["IMAGE_UPLOADS"], filename))
+			if allowed_image(upload_image.filename):
+				filename = secure_filename(upload_image.filename)
+				upload_image.save(os.path.join(app.config["IMAGE_UPLOADS"], filename))
 				loc = os.path.join(app.config["IMAGE_UPLOADS"], filename)
 				print("Loc: ")
 				print(loc)
 				print("Image saved")
-				data_df = upload_nn(loc, dict())
-				print("nn_output should now be rendered")
-				return render_template("nn_output.html", data_df=data_df)
+
+				closest = findClosest(upload_image, db_images)
+				print(closest)
+				#data_df = upload_nn(loc, dict())
+				#print("nn_output should now be rendered")
+				return render_template("nn_output.html")
 
 			else:
 				print("That file extension is not allowed")

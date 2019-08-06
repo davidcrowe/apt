@@ -18,7 +18,7 @@ heroku = Heroku(app)
 
 # Set configurations for image upload functionality
 # Note - IMAGE_UPLOADS will need to change in order to deploy to Heroku
-app.config["IMAGE_UPLOADS"] = "./uploads"
+app.config["IMAGE_UPLOADS"] = "/uploads"
 #app.config["IMAGE_UPLOADS"] = "/Users/davidcrowe/code/harvard/csci_s14a/final_project/repo/HES-CSCI_S14A-CNN_Semantic_Segmentation_Team_10/uploads"
 app.config["ALLOWED_IMAGE_EXTENSIONS"] = ["JPEG", "JPG", "PNG", "GIF"]
 app.config["MAX_CONTENT_LENGTH"] = 50 * 1024 * 1024

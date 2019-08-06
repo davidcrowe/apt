@@ -1,19 +1,19 @@
-from flask import Flask, flash, render_template, request, redirect, jsonify, session
-from flask_heroku import Heroku
 import psycopg2
 import os
+from flask import Flask, flash, render_template, request, redirect, jsonify, session
+from flask_heroku import Heroku
 from werkzeug.utils import secure_filename
+from passlib.hash import sha256_crypt
 from models import *
-from forms import RegisterForm, LoginForm
-#from passlib.hash import sha256_crypt
 from img_nn import *
+from forms import RegisterForm, LoginForm
 
 app = Flask(__name__)
 
 
 # comment the first line below for deploying to heroku; comment second line for local deployment 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:########@localhost/housingapp'
-#heroku = Heroku(app)
+#app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:########@localhost/housingapp'
+heroku = Heroku(app)
 
 # Set configurations for image upload functionality
 app.config["IMAGE_UPLOADS"] = "/Users/davidcrowe/code/harvard/csci_s14a/final_project/repo/HES-CSCI_S14A-CNN_Semantic_Segmentation_Team_10/uploads"

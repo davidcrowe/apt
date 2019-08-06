@@ -12,7 +12,7 @@ app = Flask(__name__)
 
 
 # comment the first line below for deploying to heroku; comment second line for local deployment 
-app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:########@localhost/housingapp'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:baja1880@localhost/housingapp'
 # Also need to be sure to remove requirements.txt from .gitignore in order to deploy to Heroku
 #heroku = Heroku(app)
 
@@ -101,17 +101,25 @@ def begin_search():
 @app.route("/<cid>")
 def property_detail(cid):
 	property = Property.query.get(cid)
-	mls = str(property.mls_num)
-	#if mls in 
-	prop_func = Photo.query.filter_by(mls_num=str(71835057)).first()
-	db_images = Photo.query.filter().all()
-	print(prop_func.features)
-	closest = []
-	closest = findClosestPropDetail(prop_func, db_images)
+	#mls = str(property.mls_num)
+	mls = str(71857486)
+	photos = Photo.query.all()
+	mlsNums = []
+	for photo in photos:
+		mlsNums.append(photos.mls_num)
+	print(mlsNums)
+	#photo_mls = photos.mls_num
+	if mls in mlsNums:
+		prop_func = Photo.query.filter_by(mls_num=str(mls)).first()
+		db_images = Photo.query.filter().limit(10).all()
+		closest = []
+		closest = findClosestPropDetail(prop_func, db_images)
+	else:
+		closest = ['71835057', '71895128', '71895125', '71826868', '71902172']
 	print(closest)
 
 
-	return render_template('property-detail.html', property=property)
+	return render_template('property-detail.html', property=property, closest=closest)
 
 
 @app.route("/view-properties")

@@ -1,10 +1,10 @@
 import psycopg2
 import os
-from flask import Flask, flash, render_template, request, redirect, jsonify, session
+from flask import Flask, flash, render_template, request, redirect, jsonify, session, url_for
 from flask_heroku import Heroku
 from werkzeug.utils import secure_filename
 from passlib.hash import sha256_crypt
-from models import *
+from models import db, Property, User
 from img_nn import *
 from forms import RegisterForm, LoginForm
 
@@ -97,16 +97,24 @@ def landing():
 def begin_search():
 	return render_template("begin-search.html")
 
-
-@app.route("/property-detail")
-def property_detail():
-	return render_template("property-detail.html")
+# This used to be property-detail
+@app.route("/<cid>")
+def property_detail(cid):
+	property = Property.query.get(cid)
+	return render_template('property-detail.html', property=property)
 
 
 @app.route("/view-properties")
 def view_properties():
-	propertys = Property.query.filter().limit(10).all()
-	return render_template("view-properties.html", propertys = propertys)
+	#propertys = Property.query.paginate(1, 20, False).items
+	page = request.args.get('page', 1, type=int)
+	propertys = Property.query.paginate(page, 30, False)
+	next_url = url_for('view_properties', page=propertys.next_num) \
+		if propertys.has_next else None
+	prev_url = url_for('view_properties', page=propertys.prev_num) \
+		if propertys.has_prev else None
+	return render_template("view-properties.html", propertys = propertys.items, next_url=next_url, prev_url=prev_url)
+
 
 
 def allowed_image(filename):

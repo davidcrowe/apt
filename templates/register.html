@@ -1,43 +1,22 @@
-{% extends "layout.html" %}
+{% extends "layout.html" %} {% block body %}
+<section class="features-icons bg-light text-center" style="height: 640px; background: #FF512F;fallback for old browsers */background: -webkit-linear-gradient(to right, #F09819, #FF512F);background: linear-gradient(to right, #F09819, #e77221); ">
 
-
-{% block body %}
-  <body class="text-center">
-    <form class="form-signin">
-	  <img class="mb-4 apt-logo" src="../static/img/aptlogo.png" alt="" width="72" height="72">
-	  <h1 class="h3 mb-3 font-weight-normal">Register</h1>
-
-		<div class=>
-			{{ form.username.label }}<br>
-			{{ form.username(size=32) }}<br>
-
-			{% for error in form.username.errors %}
-				<span style="color: red;">[{{ error }}]</span>
-			{% endfor %}
-		</div>
-
-		<div>
-			{{ form.email.label }}<br>
-			{{ form.email(size=32) }}<br>
-
-			{% for error in form.email.errors %}
-				<span style="color: red;">[{{ error }}]</span>
-			{% endfor %}
-		</div>
-
-		<div>
-			{{ form.password.label }}<br>
-			{{ form.password(size=32) }}<br>
-
-			{% for error in form.username.errors %}
-				<span style="color: red;">[{{ error }}]</span>
-			{% endfor %}
-		</div>
-
-		{{ form.submit(class="btn btn-lg btn-primary btn-block") }}
-
-	</form>
-
-</body>
-
-{% endblock %}
+	<body class="text-center">
+		<form class="form-signin" style="margin-left: 160px;">
+			<h1 class="mb-5" style="text-align: left;font-family: 'Open Sans', sans-serif;font-size: 32px;color: white;">Register</h1>
+			<div style="text-align: left; color: white; font-family: 'Open Sans', sans-serif;"> {{ form.username.label }}<br>
+				{{ form.username(size=32) }}<br>
+				{% for error in form.username.errors %} <span style="color: red;">[{{ error }}]</span> {% endfor %} </div> <br>
+			<div style="text-align: left; color: white; font-family: 'Open Sans', sans-serif;"> {{ form.email.label }}<br>
+				{{ form.email(size=32) }}<br>
+				{% for error in form.email.errors %} <span style="color: red;">[{{ error }}]</span> {% endfor %} </div> <br>
+			<div style="text-align: left; color: white; font-family: 'Open Sans', sans-serif;"> {{ form.password.label }}<br>
+				{{ form.password(size=32) }}<br>
+				{% for error in form.username.errors %} <span style="color: red;">[{{ error }}]</span> {% endfor %} </div> 
+			<br>
+			<br>
+			<br>
+			{{ form.submit(class="btn btn-lg btn-primary btn-block", style="width: 200px;float: left;position: relative;top: -20px;font-weight: normal;border-width: 0;font-family: 'Open Sans', sans-serif;font-size: 15px;color: #ffffff;background: #141E30;background: -webkit-linear-gradient(to right, #243B55, #141E30);background: linear-gradient(to right, #243B55, #141E30);") }} 
+		</form>
+	</body>
+</section> {% endblock %}

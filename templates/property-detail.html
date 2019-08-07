@@ -11,6 +11,7 @@
 	</div>
 </header>
 <section class="features-icons bg-light text-center" style="height: 860px;">
+	<container style="height:100%;">
 	<div class="container" style="width: 95%;">
 		<div class="row" style="width: 100%;margin-top: -70px;">
 			<div class="col" style="height: 50px;padding-left: 0px;margin-left: 20px;font-weight: bold;font-style: normal;">
@@ -54,9 +55,9 @@
 {% for result in final_product %}
 
 
-<div class="col-md-6 d-lg-flex justify-content-lg-start align-items-lg-start" style="padding: 2%;">
+<div class="col-md-6 d-lg-flex justify-content-lg-start align-items-lg-start" style="padding: 2%; max-width: 320px;">
 	<div class="card d-lg-flex" style="background-color: rgba(255,255,255,0);/*top: -12pc;*/">
-		<div class="card-body" style="width: 100%px;background-color: #ffffff;height: 100%;-webkit-box-shadow: 0px 5px 16px 3px rgba(43,43,43,0.23);box-shadow: 0px 5px 16px 3px rgba(43,43,43,0.23);border-radius: 2%;padding: 0;"><img src="{{ result.photo_url }}" style="width: 100%; margin 0%; border-radius: 3% 3% 0% 0%;">
+		<div class="card-body" style="width: 100%;background-color: #ffffff;height: 100%;-webkit-box-shadow: 0px 5px 16px 3px rgba(43,43,43,0.23);box-shadow: 0px 5px 16px 3px rgba(43,43,43,0.23);border-radius: 2%;padding: 0;"><img src="{{ result.photo_url }}" style="width: 100%; margin 0%; border-radius: 3% 3% 0% 0%;">
 			<h4 class="card-title" style="font-weight: black;color: #0a253e;padding: 2%;margin: 0;margin-bottom: 0;text-align: left;font-family: 'Open Sans', sans-serif;margin-left: 5px;">{{ result.style }} at {{result.address}}</h4>
 			<h6 class="" style="text-align: left;padding: 2%;margin-bottom: 0;font-family: 'Open Sans', sans-serif;font-style: normal;font-weight: normal;margin-left: 5px; color: #e77221;">List Price: ${{ result.list_price }}</h6>
 			<h6 style="font-size: 10px; color: #Ffffff;">...</h6>
@@ -74,4 +75,5 @@
 		</div>
 
 		</br>
+</container>
 </section> {% endblock %}

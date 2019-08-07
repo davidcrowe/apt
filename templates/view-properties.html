@@ -114,7 +114,10 @@
 		}
 	</script>
 	<div class="container d-xl-flex justify-content-xl-start" style="background-image: url(&quot;static/img/tyler-nix-694kMSZcK_Y-unsplash.jpg?h=ed20f387453ab45ef1c103a782990104&quot;);width: 50%;margin-left: 50%;background-color: #ffffff;opacity: 1;">
-		<div class="row d-lg-flex d-xl-flex justify-content-lg-start justify-content-xl-start align-items-xl-start" style="height: 1000px;overflow: scroll;background-color: rgba(238,238,238,0.8);"> {% for property in propertys %}
+		<div class="row d-lg-flex d-xl-flex justify-content-lg-start justify-content-xl-start align-items-xl-start" style="height: 1000px;overflow: scroll;background-color: rgba(238,238,238,0.8);">
+
+
+			{% for property in propertys|sort(attribute='mls_num', reverse = True)%}
 			<div class="col-md-6 d-lg-flex justify-content-lg-start align-items-lg-start" style="padding: 4%;">
 				<div class="card d-lg-flex" style="background-color: rgba(255,255,255,0);/*top: -12pc;*/">
 					<div class="card-body" style="width: 100%px;background-color: #ffffff;height: 100%;-webkit-box-shadow: 0px 5px 16px 3px rgba(43,43,43,0.23);box-shadow: 0px 5px 16px 3px rgba(43,43,43,0.23);border-radius: 2%;padding: 0;"><img src="{{ property.photo_url }}" style="width: 100%; margin 0%; border-radius: 3% 3% 0% 0%;">

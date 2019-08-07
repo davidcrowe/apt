@@ -190,13 +190,18 @@ def upload_image():
 				print(closest)
 				#data_df = upload_nn(loc, dict())
 				#print("nn_output should now be rendered")
-				return render_template("nn_output.html")
 
+				final_product = Property.query.filter(Property.mls_num.in_(closest)).all()
+				return render_template("view-properties-upload.html", final_product = final_product)
 			else:
 				print("That file extension is not allowed")
 				return redirect(request.url)
-				
+
+
+			#print(final_product)
+
 	return render_template("upload_image.html")
+
 
 
 if __name__ == "__main__":
